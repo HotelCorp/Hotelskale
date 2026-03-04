@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
             applyTheme('light');
         } else {
-            applyTheme('dark');
+            applyTheme('light');
         }
     })();
 
