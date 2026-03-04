@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const saved = localStorage.getItem(THEME_KEY);
         if (saved === 'light' || saved === 'dark') {
             applyTheme(saved);
-        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-            applyTheme('light');
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            applyTheme('dark');
         } else {
             applyTheme('light');
         }
