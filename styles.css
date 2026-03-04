@@ -132,7 +132,11 @@ body.navbar-visible .navbar {
     text-decoration: none;
     color: inherit;
 }
-
+.logo-img {
+    height: 44px;
+    width: auto;
+    display: block;
+}
 .logo-mark {
     position: relative;
     padding: 10px 10px 12px;
