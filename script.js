@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /* EMAILJS INITIALISATION */
     if (window.emailjs) {
         try {
-            emailjs.init('4FeP43d07wLEHYR0K'); // keep your existing public key
+            emailjs.init('kxztnmYk_v8LTu9il'); // keep your existing public key
         } catch (e) {
             console.warn('EmailJS init error:', e);
         }
@@ -154,14 +154,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             try {
                 await emailjs.send(
-                    'service_7uuaw4w',      // your EmailJS service ID
-                    'template_y6e1yna',     // your EmailJS template ID
+                    'service_ajmnp78',      // your EmailJS service ID
+                    'template_u2sw7hf',     // your EmailJS template ID
                     {
                         from_name: formData.name,
                         from_email: formData.email,
                         phone: formData.phone,
                         message: formData.message,
-                        to_email: 'tracrevai@gmail.com'
+                        to_email: 'hotelskale@gmail.com'
                     }
                 );
 
