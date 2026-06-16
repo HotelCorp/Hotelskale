@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.figure-card, .feature-card, .step-item, .testimonies-card, .testimonies-histogram, .performance-metrics-item, .contact-form-wrapper')
+    document.querySelectorAll('.figure-card, .feature-card, .step-item, .testimonies-card, .testimonies-histogram, .performance-metrics-item')
         .forEach((el, index) => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(22px)';
@@ -118,66 +118,4 @@ document.addEventListener('DOMContentLoaded', function () {
                 `transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) ${delay}s`;
             revealObserver.observe(el);
         });
-
-   
-
-    /* EMAILJS INITIALISATION */
-    if (window.emailjs) {
-        try {
-            emailjs.init('kxztnmYk_v8LTu9il'); // keep your existing public key
-        } catch (e) {
-            console.warn('EmailJS init error:', e);
-        }
-    }
-
-    /* CONTACT FORM HANDLING */
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-
-    if (contactForm && formStatus && window.emailjs) {
-        contactForm.addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
-            };
-
-            const submitButton = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending…';
-            formStatus.textContent = '';
-            formStatus.className = 'form-status';
-
-            try {
-                await emailjs.send(
-                    'service_ajmnp78',      // your EmailJS service ID
-                    'template_u2sw7hf',     // your EmailJS template ID
-                    {
-                        from_name: formData.name,
-                        from_email: formData.email,
-                        phone: formData.phone,
-                        message: formData.message,
-                        to_email: 'hotelskale@gmail.com'
-                    }
-                );
-
-                formStatus.textContent = "Thank you. Your message has been sent – we'll respond shortly.";
-                formStatus.classList.add('success');
-                contactForm.reset();
-            } catch (error) {
-                console.error('EmailJS Error:', error);
-                formStatus.textContent = 'Sorry, there was an error sending your message. Please try again or email us directly.';
-                formStatus.classList.add('error');
-            } finally {
-                submitButton.disabled = false;
-                submitButton.textContent = originalText;
-            }
-        });
-    }
-
-    console.log('HOTEL SKALE site loaded.');
 });
