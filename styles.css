@@ -7,7 +7,7 @@
 
 /* Color System */
 :root {
-    --color-bg-dark: #020617;
+    --color-bg-dark: #020617;403-7756655-1287517
     --color-bg-elevated-dark: #02081f;
     --color-bg-soft-dark: #050c24;
     --color-text-dark: #e5e7eb;
@@ -1447,3 +1447,69 @@ grid-template-columns:1fr;
 }
 /* Original content of styles.css before recent changes */
 /* Add your original CSS styles here */
+
+
+/* ===== FLOATING CONTACT BUTTONS ===== */
+.floating-contacts {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 9999;
+}
+
+.floating-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.floating-btn:hover {
+    transform: scale(1.12) translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
+.floating-whatsapp {
+    background: #25D366;
+    animation: floating-pulse 2.5s infinite;
+}
+
+.floating-whatsapp:hover {
+    background: #1ebe59;
+}
+
+.floating-email {
+    background: #c9a84c;
+}
+
+.floating-email:hover {
+    background: #b8943f;
+}
+
+@keyframes floating-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@media (max-width: 600px) {
+    .floating-contacts {
+        bottom: 18px;
+        right: 16px;
+        gap: 10px;
+    }
+    .floating-btn {
+        width: 50px;
+        height: 50px;
+    }
+}
